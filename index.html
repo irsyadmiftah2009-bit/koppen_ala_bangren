@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Koppen_Street</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           VIDEO BACKGROUND
+        ========================= */
+
+        .video-bg {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: -2;
+
+            /* Membuat video tetap bergerak */
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           OVERLAY
+        ========================= */
+
+        .overlay {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            z-index: -1;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 35px;
+
+            padding-top: 30px;
+
+            position: relative;
+
+            z-index: 10;
+
+            font-size: 20px;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ddd;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            position: relative;
+
+            z-index: 1;
+
+            min-height: calc(100vh - 70px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           TOMBOL
+        ========================= */
+
+        .btn-menu {
+            display: inline-block;
+
+            background: black;
+
+            color: white;
+
+            padding: 16px 32px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-menu:hover {
+            background: #333;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           KHUSUS HP
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                gap: 18px;
+
+                padding-top: 25px;
+
+                font-size: 16px;
+            }
+
+            .content {
+                min-height: calc(100vh - 60px);
+
+                padding: 30px 15px;
+            }
+
+            .content h2 {
+                font-size: 2.2rem;
+
+                line-height: 1.2;
+            }
+
+            .content p {
+                font-size: 1rem;
+
+                max-width: 350px;
+
+                line-height: 1.6;
+            }
+
+            .btn-menu {
+                padding: 14px 28px;
+
+                font-size: 16px;
+            }
+
+        }
+
+
+        /* =========================
+           HP KECIL
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            nav {
+                gap: 15px;
+
+                padding-top: 25px;
+
+                font-size: 15px;
+            }
+
+            .content h2 {
+                font-size: 1.9rem;
+            }
+
+            .content p {
+                font-size: 14px;
+
+                max-width: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         VIDEO BACKGROUND
+    ========================= -->
+
+    <video
+        class="video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+
+        <source
+            src="bak mimpi.mp4"
+            type="video/mp4">
+
+        Browser kamu tidak mendukung video.
+
+    </video>
+
+
+    <!-- =========================
+         OVERLAY
+    ========================= -->
+
+    <div class="overlay"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <a href="menu.html">
+            Menu
+        </a>
+
+        <a href="kelompok%20RIF.html">
+            Tentang Kami
+        </a>
+
+        <a href="Alamat.html">
+            Kontak
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         ISI WEBSITE
+    ========================= -->
+
+    <main class="content text-white">
+
+
+        <!-- JUDUL -->
+
+        <h2 class="text-5xl font-bold mb-5 drop-shadow-lg">
+
+            Selamat Datang di Koppen_Street
+
+        </h2>
+
+
+        <!-- DESKRIPSI -->
+
+        <p class="text-lg mb-8 drop-shadow-lg">
+
+            Kopi jalanan dengan rasa nikmat,
+            harga bersahabat,
+            dan suasana yang nyaman.
+
+        </p>
+
+
+        <!-- TOMBOL MENU -->
+
+        <a
+            href="menu.html"
+            class="btn-menu">
+
+            Lihat Menu
+
+        </a>
+
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         MEMASTIKAN VIDEO BERJALAN
+    ========================= -->
+
+    <script>
+
+        const video = document.querySelector(".video-bg");
+
+
+        // Coba menjalankan video
+        video.play().catch(function () {
+
+            console.log("Video menunggu interaksi pengguna.");
+
+        });
+
+
+        // Jika video berhenti, jalankan kembali
+        video.addEventListener("pause", function () {
+
+            video.play().catch(function () {});
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
